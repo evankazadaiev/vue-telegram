@@ -1,17 +1,38 @@
 <template>
-  <div class="message">
+  <div class="message" :class="{ my: message.my }">
     <div class="message__text">
       <div class="message__text__content">
-        <span>Pretty sweet, right?</span>
-        <div class="message__time">18:11</div>
+        <span>{{ message.text }}</span>
+        <div class="message__time">{{ messageTime }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import helpers from '@/helpers/'
 export default {
-  name: 'Message'
+  name: 'Message',
+  props: {
+    message: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {
+    messageTime () {
+      const time = this.message.time ?? helpers.randomDate(new Date(1, 2, 1998), new Date())
+      const fullDate = new Date(time)
+      let hours = fullDate.getHours()
+      let minutes = fullDate.getMinutes()
+      const amOrPm = hours >= 12 ? 'pm' : 'am'
+      hours %= 12
+      hours = hours || 12
+      minutes = minutes < 10 ? `0${minutes}` : minutes
+      const newTime = `${hours}:${minutes} ${amOrPm}`
+      return newTime
+    }
+  }
 }
 </script>
 

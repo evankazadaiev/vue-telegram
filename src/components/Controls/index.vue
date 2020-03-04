@@ -24,6 +24,7 @@
 <script>
 import SendIcon from '@/assets/send-btn.svg?inline'
 import AttachIcon from '@/assets/attach-icon.svg?inline'
+import helpers from '@/helpers/'
 
 export default {
   name: 'Controls',
@@ -36,7 +37,16 @@ export default {
   }),
   methods: {
     sendMessage () {
-
+      if (this.message.length > 0) {
+        const message = {
+          my: true,
+          text: this.message,
+          id: helpers.getRandomId(),
+          time: new Date()
+        }
+        this.$emit('sendMessage', message)
+        this.message = ''
+      }
     }
   }
 }

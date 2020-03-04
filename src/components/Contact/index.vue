@@ -1,18 +1,18 @@
 <template>
-  <li class="dialog">
+  <li class="dialog" :class="{ active: isActive }">
     <a v-on="listeners" class="dialog-inner">
       <div class="left">
         <div class="dialog-photo">
-          <img class="dialog-photo" src="https://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg" alt="">
+          <img class="dialog-photo" :src="contact.profilePhoto" alt="">
         </div>
         <div class="dialog-message-wrap">
-          <h3 class="dialog-title">Anna</h3>
-          <span class="dialog-last_message">Hello World</span>
+          <h3 class="dialog-title">{{ contact.name }}</h3>
+          <span class="dialog-last_message">{{ contact.lastMessage.text }}</span>
         </div>
       </div>
       <div class="dialog-meta">
-        <span class="dialog-date">10:39 P.M.</span>
-        <span class="dialog-unread-count">123</span>
+        <span class="dialog-date">{{ messageTime }}</span>
+        <span class="dialog-unread-count">{{ contact.unread }}</span>
       </div>
     </a>
   </li>
@@ -21,9 +21,30 @@
 <script>
 export default {
   name: 'Contact',
+  props: {
+    contact: {
+      type: Object,
+      required: true
+    }
+  },
   computed: {
+    isActive () {
+      return parseInt(this.$route.params.id, 10) === this.contact.roomId
+    },
     listeners () {
       return { ...this.$listeners }
+    },
+    messageTime () {
+      const { lastMessage: { createdAt } } = this.contact
+      const fullDate = new Date(createdAt)
+      let hours = fullDate.getHours()
+      let minutes = fullDate.getMinutes()
+      const amOrPm = hours >= 12 ? 'pm' : 'am'
+      hours %= 12
+      hours = hours || 12
+      minutes = minutes < 10 ? `0${minutes}` : minutes
+      const time = `${hours}:${minutes} ${amOrPm}`
+      return time
     }
   }
 }
@@ -33,10 +54,17 @@ export default {
   .dialog {
     position: relative;
     display: block;
+    margin-right: 1px;
+    &.active {
+      background-color: $blue-lighten;
+    }
     .left {
       display: flex;
       align-items: center;
       justify-content: flex-start;
+      flex: 0 0 auto;
+      max-width: 225px;
+      width: 100%;
     }
     &-inner {
       display: flex;
@@ -45,6 +73,7 @@ export default {
       padding: 8px 15px;
       transition: background-color 300ms;
       cursor: pointer;
+      box-sizing: border-box;
       &:hover {
         background-color: $blue-lighten;
       }
@@ -57,11 +86,13 @@ export default {
       overflow: hidden;
     }
     &-message-wrap {
-
+      max-width: 145px;
+      width: 100%;
     }
     &-meta {
       display: block;
       text-align: right;
+      flex: 0 0 auto;
     }
     &-date {
       display: block;
@@ -99,6 +130,9 @@ export default {
       white-space: nowrap;
       text-overflow: ellipsis;
       letter-spacing: 0.2px;
+      width: 95%;
+      padding: 0.5px;
+      display: inline-block;
     }
   }
 </style>

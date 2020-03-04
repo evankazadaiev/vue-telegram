@@ -9,35 +9,15 @@
     </div>
     <MessagesWrapper v-else>
       <template v-slot:messages>
-        <Message/>
-        <Message class="my"/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
-        <Message/>
+        <Message v-for="message in messages" :key="message.id" :message="message"/>
       </template>
     </MessagesWrapper>
-    <Controls/>
+    <Controls @sendMessage="onSendMessage"/>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 const Message = () => import('@/components/Message/')
 const Controls = () => import('@/components/Controls/')
 const SelectChatMessage = () => import('@/components/SelectChatMessage/')
@@ -51,8 +31,19 @@ export default {
     MessagesWrapper
   },
   computed: {
+    ...mapGetters({
+      messages: 'chat/messages'
+    }),
     defaultRoute () {
       return this.$route.path === '/'
+    }
+  },
+  methods: {
+    ...mapActions({
+      sendMessage: 'chat/sendMessage'
+    }),
+    onSendMessage (message) {
+      this.sendMessage(message)
     }
   }
 }

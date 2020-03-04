@@ -1,0 +1,9 @@
+export const SEND_MESSAGE = 'SEND_MESSAGE'
+export const REMOVE_MESSAGES = 'REMOVE_MESSAGES'
+export const GET_MESSAGES = 'GET_MESSAGES'
+
+export default {
+  SEND_MESSAGE,
+  REMOVE_MESSAGES,
+  GET_MESSAGES
+}

@@ -5,6 +5,7 @@ import VuexPersistence from 'vuex-persist'
 
 import auth from './modules/auth'
 import staticModule from './modules/staticModule'
+import chat from './modules/chat'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
   reducer: state => ({
     auth: state.auth.auth,
+    chat: state.chat,
     staticModule: state.staticModule
   })
 })
@@ -19,6 +21,7 @@ const vuexLocal = new VuexPersistence({
 export default new Vuex.Store({
   modules: {
     auth,
+    chat,
     staticModule
   },
   plugins: [vuexLocal.plugin, createLogger()]
