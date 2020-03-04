@@ -15,11 +15,12 @@ The instructions below will help you set up the development environment.
 
 ## Project setup Environment
 
-1. First you need to obtain API id for telegram: Sign up for Telegram using any application.
-Log in to your Telegram core: https://my.telegram.org.
-Go to 'API development tools' and fill out the form.
-You will get basic addresses as well as the api_id and api_hash parameters required for user authorization.
-For the moment each number can only have one api_id connected to it.
+1. First you need to obtain API id for telegram: 
+   - Sign up for Telegram using any application.
+   - Log in to your Telegram core: https://my.telegram.org.
+   - Go to 'API development tools' and fill out the form.
+   - You will get basic addresses as well as the api_id and api_hash parameters required for user authorization.
+   - For the moment each number can only have one api_id connected to it.
 
 1. Make sure you have Vue CLI 4 installed, you can install it by going to [Vue website](https://cli.vuejs.org/guide/installation.html)
 1. Clone the repository `git clone https://github.com/evankazadaiev/vue-telegram.git`
