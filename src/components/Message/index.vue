@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
   .message {
-    padding: 4px 8px;
+    padding: 4px 8px 8px 8px;
     align-self: flex-start;
     display: flex;
     justify-content: space-between;
@@ -49,7 +49,7 @@ export default {
     margin: 10px;
     z-index: 2;
     box-shadow: 0 1px 4px 0 rgba(160,172,182,.5);
-    background: #fff;
+    background: $white;
     border-radius: .4em;
     &::before, &::after {
       content: "";
@@ -96,9 +96,9 @@ export default {
       }
     }
     &__time {
-      position: relative;
-      top: 8px;
-      right: 4px;
+      position: absolute;
+      bottom: 5px;
+      right: 6px;
       display: inline-block;
       float: right;
       text-align: right;
