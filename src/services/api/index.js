@@ -1,10 +1,6 @@
 import { MTProto } from 'telegram-mtproto'
 import Storage from 'mtproto-storage-browser'
-
-const config = {
-  api_id: 1267866,
-  api_hash: 'a6b881428e60b116a8409fdecac9f620'
-}
+import config from '@/config/'
 
 const api = {
   layer: 57,

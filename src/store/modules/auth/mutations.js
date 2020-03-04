@@ -27,7 +27,6 @@ export default {
   },
   [types.SEND_CODE_FAILURE] (state) {
     state.loading = false
-    console.log('failure')
   },
   [types.SIGN_IN_REQUEST] (state) {
     state.loading = true
@@ -37,7 +36,6 @@ export default {
     state.loading = false
   },
   [types.SIGN_IN_FAILURE] (state, error) {
-    console.log(error)
     state.loading = false
   },
   [types.CLEAR_MODULE] (state) {

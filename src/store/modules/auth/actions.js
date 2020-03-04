@@ -15,11 +15,8 @@ const setUser = ({ commit }, user) => {
 
 const signIn = async ({ commit, dispatch }, params) => {
   commit(types.SIGN_IN_REQUEST)
-  console.log('request start')
   try {
-    console.log('request body ')
     const user = await telegramAPI.signIn(params)
-    console.log('request body 2')
     console.log(user)
     dispatch('setUser', user)
     commit(types.SIGN_IN_SUCCESS, user)
