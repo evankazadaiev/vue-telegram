@@ -8,10 +8,25 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@mtproto/core": "^0.0.8",
+    "axios": "^0.19.2",
+    "connect-history-api-fallback": "^1.6.0",
     "core-js": "^3.6.4",
+    "easy-telegram-mtproto": "^1.0.4",
+    "express": "^4.17.1",
+    "file-loader": "^5.1.0",
+    "mtproto-storage-browser": "^0.1.5",
+    "telegram-api-js": "^1.2.9",
+    "telegram-mtproto": "^3.2.11",
+    "vee-validate": "2.1.5",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
-    "vuex": "^3.1.2"
+    "vue-select": "2.x",
+    "vue-svg-loader": "^0.16.0",
+    "vue-the-mask": "^0.11.1",
+    "vuex": "^3.1.2",
+    "vuex-persist": "^2.2.0",
+    "worker-loader": "^2.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",
@@ -43,7 +58,11 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "vue/require-prop-type-constructor": "off",
+      "no-prototype-builtins": "off",
+      "camelcase": "off"
+    }
   },
   "browserslist": [
     "> 1%",

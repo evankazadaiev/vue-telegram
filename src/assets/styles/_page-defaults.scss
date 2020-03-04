@@ -1,0 +1,22 @@
+.wrapper-page {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .wrap {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-basis: 100%;
+  }
+}
