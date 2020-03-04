@@ -25,9 +25,9 @@ The instructions below will help you set up the development environment.
 1. Make sure you have Vue CLI 4 installed, you can install it by going to [Vue website](https://cli.vuejs.org/guide/installation.html)
 1. Clone the repository `git clone https://github.com/evankazadaiev/vue-telegram.git`
 1. `cd vue-telegram`
-1. Create a .env file in the project root and set your `API_ID` and `API_HASH_ID` there as below:      
-      - `VUE_APP_API_HASH=a6b881428e60b116a8409fdecac9f620`
-      - `VUE_APP_API_ID=1267866`
+1. Create a .env file in the project root and set your `API_ID` and `API_HASH` there as below:      
+      - `VUE_APP_API_HASH= YOUR API_HASH HERE`
+      - `VUE_APP_API_ID= YOUR API_ID HERE`
 
 1. `yarn install` to install the dependencies.
 1. `yarn serve` to compile and hot-reload for development.
