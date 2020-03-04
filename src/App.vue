@@ -9,7 +9,6 @@ import { mapActions } from 'vuex'
 export default {
   name: 'App',
   created () {
-    console.log(process.env)
     // this.clearAuthModule()
   },
   methods: {
