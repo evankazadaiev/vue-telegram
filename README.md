@@ -1,5 +1,3 @@
-# telegram-vue
-
 # Vue telegram.
 
 ## Demo. Make sure you have created telegram app client here https://my.telegram.org/.
