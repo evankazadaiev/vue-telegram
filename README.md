@@ -1,6 +1,6 @@
 # Vue telegram.
 
-## Demo. Make sure you have created telegram app client here https://my.telegram.org/.
+## Demo. Make sure you have created telegram app client [here](https://my.telegram.org/).
 
 1. [Demo](https://vuegram.herokuapp.com/login).
 
